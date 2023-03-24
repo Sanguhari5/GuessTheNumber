@@ -51,7 +51,6 @@ public class GTN
                     System.out.println("Choose the number  between 1 to "+limit);
                     t=false;    
                 }
-                sc.close();
             }
             catch(Exception e) 
             {
