@@ -1,5 +1,3 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class A{
@@ -54,6 +52,7 @@ public class A{
                 }
             }
         }
+        sc.close();
     }
     
     static void prompt_d(){
@@ -85,6 +84,7 @@ public class A{
                 System.exit(0);break;
             default:System.out.println("Enter the valid option\n-------------------------");prompt_d();break;
         }
+        sc.close();
     }
 
     
@@ -106,7 +106,10 @@ class Account
         A.acc=scc.nextLine();
         System.out.println("SUCCESSFULLY REGISTERED");
         System.out.println("------------------");
+        scc.close();
         A.prompt_d();
+        if(use==pas)
+            A.prompt_d();
     }
     
 }
@@ -122,6 +125,7 @@ class De{
         A.history.add(Integer.toString(d));
         System.out.println("Amount Rs."+d+"/- deposit successful in your account");
         System.out.println("--------------------------------");
+        sc.close();
         A.prompt_d();
     }
 }
@@ -133,6 +137,7 @@ class wi
         System.out.println("----------------------");
         System.out.println("Enter amount to withdraw in your account:");
         int w=sc.nextInt();
+        sc.close();
         if(w<=A.balance){
             A.balance=A.balance-w;
             A.history.add("Withdraw    - ");
@@ -161,11 +166,16 @@ class tr
             A.history.add(Integer.toString(t));
             System.out.println("cash Rs."+t+"/-  successfully it got transferred");
         }
+        else if(num==-1)
+        {
+            A.prompt_d();
+        }
         else{
             System.out.println("Balance is insufficient...so no transferring");
         }
         System.out.println("---------------------------");
         A.prompt_d();
+        sc.close();
     }
 }
 class che{
